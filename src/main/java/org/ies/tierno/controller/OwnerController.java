@@ -3,7 +3,6 @@ package org.ies.tierno.controller;
 import jakarta.validation.Valid;
 import org.ies.tierno.controller.dto.OwnerRequest;
 import org.ies.tierno.controller.dto.OwnerResponse;
-import org.ies.tierno.model.Owner;
 import org.ies.tierno.service.DuplicateEmailException;
 import org.ies.tierno.service.OwnerHasPetsException;
 import org.ies.tierno.service.OwnerNotFoundException;
@@ -57,6 +56,7 @@ public class OwnerController {
     }
 
     @DeleteMapping("/{ownerId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteOwnerId(
             @PathVariable long ownerId
     ){
