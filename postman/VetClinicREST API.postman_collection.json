@@ -1,0 +1,284 @@
+{
+  "info": {
+    "_postman_id": "c689a319-cec5-4e67-8f87-a6ab652d0096",
+    "name": "VetClinicREST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58960759",
+    "_collection_link": "https://go.postman.co/collection/58960759-c689a319-cec5-4e67-8f87-a6ab652d0096?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Pets",
+      "item": [
+        {
+          "name": "Get All Pets by Owner",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/owners/1/pets",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "1",
+                "pets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Pet by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/owners/1/pets/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "1",
+                "pets",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Pets from Non-Existent Owner",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/owners/99/pets",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "99",
+                "pets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Filter Pets by Species",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/owners/1/pets?species=DOG",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "1",
+                "pets"
+              ],
+              "query": [
+                {
+                  "key": "species",
+                  "value": "DOG"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Pet with Future Birth Date",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rocky\",\n  \"species\": \"RABBIT\",\n  \"birthDate\": \"2027-05-30\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/owners/2/pets",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "2",
+                "pets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Pet with Empty Name",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"\",\n  \"species\": \"RABBIT\",\n  \"birthDate\": \"2023-05-30\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/owners/1/pets",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "1",
+                "pets"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Solicitudes para gestionar las mascotas asociadas a los propietarios de la clínica veterinaria mediante la API REST VetClinicREST.\n\n**Operaciones disponibles:**\n\n- Consultar las mascotas de un propietario.\n    \n- Filtrar mascotas por especie.\n    \n- Consultar una mascota por su identificador.\n    \n- Registrar una nueva mascota.\n    \n- Actualizar los datos de una mascota.\n    \n- Eliminar una mascota.\n    \n\n**Ruta base:** `/api/owners/{ownerId}/pets`\n\nEsta carpeta contiene las peticiones para comprobar la gestión de mascotas, los parámetros de consulta, la validación de datos y las respuestas ante posibles errores."
+    },
+    {
+      "name": "Owners",
+      "item": [
+        {
+          "name": "Create Owner with Existing Email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Erick\",\n    \"email\": \"luis@example.com\",\n    \"phone\": \"612123123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/owners",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Owner 2",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/owners/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Pet 3 from Owner 2",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/owners/2/pets/3",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "2",
+                "pets",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Owner 2 Again",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/owners/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Owner 3",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/owners/3",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "owners",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Solicitudes para gestionar los propietarios de la clínica veterinaria mediante la API REST VetClinicREST.\n\n**Operaciones disponibles:**\n\n- Consultar un propietario por su identificador.\n    \n- Registrar un nuevo propietario.\n    \n- Eliminar un propietario.\n    \n\n**Ruta base:** `/api/owners`\n\nEsta carpeta contiene las peticiones para comprobar la gestión de propietarios y las respuestas ante posibles errores."
+    }
+  ]
+}
