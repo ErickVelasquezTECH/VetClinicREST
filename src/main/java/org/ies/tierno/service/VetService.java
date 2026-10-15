@@ -1,7 +1,7 @@
 package org.ies.tierno.service;
 
-import org.ies.tierno.controller.OwnerRequest;
-import org.ies.tierno.controller.PetRequest;
+import org.ies.tierno.controller.dto.OwnerRequest;
+import org.ies.tierno.controller.dto.PetRequest;
 import org.ies.tierno.model.Owner;
 import org.ies.tierno.model.Pet;
 import org.ies.tierno.model.Species;
@@ -107,7 +107,7 @@ public class VetService {
 
     /**
      * @throws OwnerNotFoundException
-     * @throws PetNotFoundException si la mascota no existe o pertenece a otro dueño
+     * @throws PetNotFoundException   si la mascota no existe o pertenece a otro dueño
      */
     public Pet findPet(long ownerId, long petId) {
         findOwner(ownerId);

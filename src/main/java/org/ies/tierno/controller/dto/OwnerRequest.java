@@ -1,4 +1,4 @@
-package org.ies.tierno.controller;
+package org.ies.tierno.controller.dto;
 
 import jakarta.validation.constraints.*;
 
